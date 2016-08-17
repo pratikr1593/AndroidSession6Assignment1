@@ -1,0 +1,30 @@
+a)->A menu resource defines an application menu (Options Menu, Context Menu, or submenu) that can be inflated with MenuInflater.
+
+IMPORTANCE--->
+ To provide a familiar and consistent user experience, you should use the Menu APIs to present user actions and other options in your activities.
+=================================================================================================================================================
+
+b)-->The options menu is where you should include actions and other options that are relevant to the current activity context, such as "Search," "Compose email," and "Settings."
+
+When it will be activated--------->
+public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.game_menu, menu);
+    return true;
+}
+
+c)----->Android context menu appears when user press long click on the element. It is also known as floating menu.
+
+It doesn't support item shortcuts and icons.
+
+WHEN IT WILL BE ACTIVATED----------->
+
+public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo)  
+    {  
+            super.onCreateContextMenu(menu, v, menuInfo);  
+            menu.setHeaderTitle("Select The Action");    
+            menu.add(0, v.getId(), 0, "Call");//groupId, itemId, order, title   
+            menu.add(0, v.getId(), 0, "SMS");   
+    }   
+
+d)------>we can use AppCompatActivity.when ActionBarActivity is deprecated.
